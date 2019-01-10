@@ -44,11 +44,26 @@ class App extends React.Component {
     });
   };
 
+  toggleDone = (id) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id !== id) {
+          return todo;
+        } else {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }
+      })
+    });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList toggleDone={this.toggleDone} todos={this.state.todos} />
         <TodoForm
           addTodo={this.addTodo}
           handleChanges={this.handleChanges}
