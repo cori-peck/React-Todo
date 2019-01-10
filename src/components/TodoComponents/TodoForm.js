@@ -1,15 +1,17 @@
 import React from 'react';
-import InputBox from './InputBox';
 
 function TodoForm(props) {
-    const {title, addNew} = props;
-
-    return (
-        <header>
-            <h1>{title.toUpperCase()}</h1>
-            <InputBox addNew={addNew} />
-        </header>
-    );
+  return (
+    <form>
+      <input
+        value={props.newTodoText}
+        type="text"
+        onChange={props.handleChanges}
+        name="newTodoText"
+      />
+      <button onClick={props.addTodo}>Add Todo</button>
+    </form>
+  );
 }
 
 export default TodoForm;
