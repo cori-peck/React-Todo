@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css';
 
 const todos = [
   {
@@ -59,15 +60,23 @@ class App extends React.Component {
     });
   };
 
+  clearDone = e => {
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    });
+  };
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Todo List</h2>
         <TodoList toggleDone={this.toggleDone} todos={this.state.todos} />
         <TodoForm
           addTodo={this.addTodo}
           handleChanges={this.handleChanges}
           newTodoText={this.state.newTodoText}
+          clearDone={this.clearDone}
         />
       </div>
     );
