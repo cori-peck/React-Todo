@@ -70,7 +70,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Todo List</h2>
+        <header>
+          <img src="https://cdn.xl.thumbs.canstockphoto.com/busy-businesswoman-eps-vectors_csp22928432.jpg" alt="busy woman"></img>
+        <h2 className="title">Todo List</h2>
+        </header>
         <TodoList toggleDone={this.toggleDone} todos={this.state.todos} />
         <TodoForm
           addTodo={this.addTodo}
